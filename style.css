@@ -1,211 +1,316 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:wght@400;700&display=swap');
+
+/* Monopoly GO Theme Colors */
+:root {
+    --monopoly-red: #E10000;
+    --monopoly-gold: #FFD700; /* Gold */
+    --monopoly-dark-gold: #CCAA00; /* Darker gold for accents */
+    --monopoly-blue: #007BFF; /* A vibrant blue for secondary elements */
+    --monopoly-green: #28a745; /* Green for checkmarks */
+    --monopoly-dark: #333333;
+    --monopoly-light: #FFFFFF;
+    --monopoly-text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    --body-bg-color: #f9f2e7; /* Light beige/off-white background */
+}
+
+/* Base Styles */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f2e7; /* لون بيج فاتح كلون أساسي */
-    color: #333;
     line-height: 1.6;
-    overflow-x: hidden; /* منع التمرير الأفقي */
+    color: var(--monopoly-dark); /* Default text color now dark */
+    background-color: var(--body-bg-color); /* Use the new light background color */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    text-align: center; /* Default text alignment */
+    position: relative;
+    z-index: 1; /* Ensure content is above any potential future background */
 }
 
-.background-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.ytimg.com/vi/juP8QOtU8GM/maxresdefault.jpg'); /* حط هنا رابط أو مسار صورة الخلفية ديالك */
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
+/* background-overlay class removed as per your request */
 
 .container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 40px;
-    text-align: center;
+    padding: 20px;
 }
 
+/* Hero Section */
 .hero-section {
+    background: linear-gradient(180deg, rgba(225, 0, 0, 0.9) 0%, rgba(200, 0, 0, 0.8) 100%);
     padding: 80px 20px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    background-color: rgba(204, 51, 51, 0.85); /* أحمر غني بشفافية */
-    border-radius: 15px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 8px solid var(--monopoly-gold);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
+    color: var(--monopoly-light); /* Ensure text is light on dark background */
 }
 
 .headline {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 3.5em;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 3.8em;
+    color: var(--monopoly-gold);
+    text-shadow: var(--monopoly-text-shadow);
+    margin-bottom: 15px;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 1.5px var(--monopoly-dark); /* Outline for text */
 }
 
 .subheadline {
     font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 30px;
+    color: var(--monopoly-light);
+    text-shadow: var(--monopoly-text-shadow);
+    margin-bottom: 40px;
+    font-weight: 400;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 15px 40px;
+    background-color: var(--monopoly-green);
+    color: var(--monopoly-light);
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-decoration: none;
     font-size: 1.8em;
     font-weight: bold;
-    color: #fff;
-    background-color: #ff9900; /* ذهبي لامع */
-    border: none;
-    border-radius: 50px;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 20px rgba(0, 255, 0, 0.4);
+    transition: all 0.3s ease;
+    border: 3px solid var(--monopoly-light);
+    animation: pulse 1.5s infinite; /* Add a pulse animation */
 }
 
 .cta-button:hover {
-    background-color: #e68a00; /* ذهبي أغمق عند التحويم */
-    transform: scale(1.05);
+    background-color: #218838; /* Darker green */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 255, 0, 0.6);
+    animation: none; /* Stop pulse on hover */
 }
 
+/* Pulse animation for CTA button */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* New: Centered Image Section */
+.centered-image-section {
+    padding: 40px 20px;
+    background-color: var(--body-bg-color); /* Match body background */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: -8px; /* Overlap with hero border */
+}
+
+.centered-image-section .container {
+    max-width: 800px; /* Max width for the image container */
+    margin: 0 auto;
+}
+
+.centered-image-section img {
+    width: 100%; /* Make image responsive to container width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    border: 5px solid var(--monopoly-gold); /* Gold border for theme */
+}
+
+
+/* Trust Section */
 .trust-section {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* White background for trust section */
+    padding: 30px 20px;
+    margin-top: 30px; /* Space after the image section */
+    position: relative;
+    z-index: 2;
+    border-top: 8px solid var(--monopoly-gold);
+    border-bottom: 8px solid var(--monopoly-gold);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: var(--monopoly-dark); /* Ensure text is dark on light background */
 }
 
 .trust-elements {
     list-style: none;
     padding: 0;
-    margin: 0;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .trust-elements li {
-    font-size: 1.2em;
-    color: #28a745; /* أخضر للثقة */
-    font-weight: bold;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--monopoly-green); /* Green for trust elements */
+    /* text-shadow: var(--monopoly-text-shadow); Removed for lighter feel */
+    background-color: var(--body-bg-color); /* Use the body background color */
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid var(--monopoly-green);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.trust-elements li:hover {
+    background-color: #e6e6e6; /* Slightly darker on hover */
+    transform: translateY(-3px);
+}
+
+/* Urgency Section (Countdown) */
 .urgency-section {
-    background-color: #fff3cd; /* أصفر فاتح للتحذير */
-    padding: 30px 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    background-color: var(--monopoly-red); /* Red background */
+    padding: 40px 20px;
+    border-bottom: 8px solid var(--monopoly-gold);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 2;
+    color: var(--monopoly-light); /* Ensure text is light on red background */
 }
 
 .urgency-section h2 {
-    color: #d4a300; /* أصفر غامق للتحذير */
-    margin-top: 0;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.8em;
+    color: var(--monopoly-gold);
+    text-shadow: var(--monopoly-text-shadow);
+    margin-bottom: 20px;
 }
 
 .countdown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    font-size: 2em;
-    font-weight: bold;
-    color: #d4a300;
-    margin-bottom: 10px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 3.5em;
+    color: var(--monopoly-light);
+    text-shadow: var(--monopoly-text-shadow);
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    border: 2px solid var(--monopoly-gold);
 }
 
 .countdown span {
-    background-color: #ffeeba; /* أصفر أفتح للخلفية */
-    padding: 10px 15px;
-    border-radius: 5px;
+    font-size: 1.2em; /* Make numbers slightly larger than text */
+    padding: 0 5px;
 }
 
 .hurry-up {
-    font-weight: bold;
-    color: #d4a300;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--monopoly-light);
+    text-shadow: var(--monopoly-text-shadow);
 }
 
+/* Testimonials Section */
 .testimonials-section {
+    background-color: var(--body-bg-color); /* Use the new body background color */
     padding: 60px 20px;
-    background-color: #f9f2e7;
+    border-bottom: 8px solid var(--monopoly-gold);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+    color: var(--monopoly-dark); /* Ensure text is dark on light background */
 }
 
 .testimonials-section h2 {
-    color: #c00; /* أحمر غامق للشهادات */
-    margin-bottom: 30px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.8em;
+    color: var(--monopoly-red); /* Red for testimonials heading */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
 }
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .testimonial-item {
-    background-color: #fff;
+    background-color: var(--monopoly-light); /* White background */
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    border: 2px solid var(--monopoly-gold); /* Gold border */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-.quote {
+.testimonial-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-item .quote {
+    font-size: 1.2em;
     font-style: italic;
-    color: #555;
-    margin-bottom: 10px;
+    color: var(--monopoly-dark);
+    margin-bottom: 15px;
+    /* text-shadow removed */
 }
 
-.author {
+.testimonial-item .author {
+    font-size: 1em;
     font-weight: bold;
-    color: #c00;
+    color: var(--monopoly-red); /* Red for author name */
     text-align: right;
+    /* text-shadow removed */
 }
 
+/* Footer */
 .footer {
-    background-color: #333;
-    color: #f0f0f0;
-    text-align: center;
+    background-color: var(--monopoly-dark);
+    color: var(--monopoly-light);
     padding: 20px;
     font-size: 0.9em;
+    border-top: 8px solid var(--monopoly-gold);
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.footer p {
+    margin: 5px 0;
 }
 
 .footer a {
-    color: #ff9900;
+    color: var(--monopoly-gold);
     text-decoration: none;
+    margin: 0 10px;
 }
 
 .footer a:hover {
     text-decoration: underline;
 }
 
-/* تصميم متجاوب */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .headline {
         font-size: 2.8em;
     }
+
     .subheadline {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
+
     .cta-button {
         font-size: 1.5em;
-        padding: 12px 30px;
+        padding: 15px 30px;
     }
-    .trust-elements {
-        flex-direction: column;
-        gap: 10px;
-    }
+
     .trust-elements li {
-        font-size: 1em;
+        font-size: 1.1em;
+        gap: 20px;
     }
+
+    .urgency-section h2, .testimonials-section h2 {
+        font-size: 2.2em;
+    }
+
     .countdown {
-        font-size: 1.5em;
-    }
-    .testimonial-grid {
-        grid-template-columns: 1fr;
+        font-size: 2.8em;
+        padding: 10px 20px;
     }
 }
 
@@ -213,17 +318,37 @@ body {
     .headline {
         font-size: 2.2em;
     }
+
     .subheadline {
-        font-size: 1.1em;
+        font-size: 1em;
     }
+
     .cta-button {
-        font-size: 1.2em;
-        padding: 10px 25px;
+        font-size: 1.3em;
+        padding: 12px 25px;
+        width: 90%; /* Make button wider on small screens */
     }
+
+    .trust-elements {
+        flex-direction: column; /* Stack trust elements vertically */
+        align-items: center;
+    }
+
+    .trust-elements li {
+        font-size: 1em;
+        width: 80%; /* Make list items take more width */
+    }
+
+    .urgency-section h2, .testimonials-section h2 {
+        font-size: 1.8em;
+    }
+
     .countdown {
-        font-size: 1.2em;
-        gap: 10px;
+        font-size: 2.2em;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Stack testimonials vertically */
     }
 }
 ```
-
